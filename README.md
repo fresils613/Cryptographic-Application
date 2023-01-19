@@ -10,7 +10,7 @@ Requirement
 
 **INSTALLATION PROCESS**
   
-  Run the foloowing after downloading and decompressing the file.
+  Run the following after downloading and decompressing the file.
     
     1. Pip install termcolor
     
