@@ -9,8 +9,11 @@ Requirement
 
 
 **INSTALLATION PROCESS**
+  
   Run the foloowing after downloading and decompressing the file.
+    
     1. Pip install termcolor
+    
     2. pip install pycryptodome 
 
 **STEPS:**
