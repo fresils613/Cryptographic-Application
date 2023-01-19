@@ -30,4 +30,4 @@
 
 CODE PREVIEW
 
-`[ The main.py preview] ("https://github.com/fresils613/Cryptographic-Application/blob/main/Screenshot.png")`
+"[The main.py preview] (https://github.com/fresils613/Cryptographic-Application/blob/main/Screenshot.png)"
