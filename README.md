@@ -29,6 +29,7 @@
 2. Create different folder for different user. 
 3. The application is restricted to txt, pdf, word files. 
 4. When performing folder encryption and deryption, make sure the folder contains file of suported format and it does not contain another folder. 
+5. Make sure the file being encrypted is not protected by password.
 
 CODE PREVIEW
 
