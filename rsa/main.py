@@ -66,7 +66,7 @@ while True:
                   |__/|_|                  '''
         cprint(logo, color='red', attrs=['bold'])
         dec = Decryption()
-        cprint('What do you want to encrypt', color='magenta')        
+        cprint('What do you want to decrypt', color='magenta')        
         cprint('1.Single File',color='magenta')
         cprint('2. Folder', color='magenta')
         cprint('3. Exit', color='red')
