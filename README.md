@@ -5,6 +5,7 @@ Requirement
 3. pip 
 4. termcolor 
 5. cryptodome
+
 **INSTALLATION PROCESS**
   Run the foloowing after downloading and decompressing the file.
     1. Pip install termcolor
