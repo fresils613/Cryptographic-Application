@@ -18,7 +18,7 @@ Requirement
 
 **STEPS:**
 1. start by navigating to the rsa folder.
-2. it is advisable to run the code in visual studio.(use commmand propmt if not available)
+2. it is advisable to run the code in visual studio for the termcolor to work.(use commmand propmt if not available)
 3. run command - python main.py
 4. follow the instruction. 
 
