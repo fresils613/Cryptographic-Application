@@ -24,4 +24,5 @@ Requirement
 
 **Note**
 1. it is advicable to store the private key in a folder with each user name. e.g paul_public for public key and paul_private for private key. 
+2. for private key security. save the private key in a better location in your system with good access control.
 2. Create different folder for different user. 
