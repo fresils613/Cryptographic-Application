@@ -6,7 +6,6 @@ from termcolor import cprint
 from Crypto.PublicKey import RSA
 from Crypto.Random import get_random_bytes
 from Crypto.Cipher import AES, PKCS1_OAEP
-from hashing import Hashing as HS
 from zip import Compress
 from  hashlib import sha256
 
