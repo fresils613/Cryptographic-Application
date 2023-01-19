@@ -30,4 +30,4 @@
 
 CODE PREVIEW
 
-"https:github.com/fresils/613/Cryptographic-Application/Screenshot (32).png"
+"https://github.com/fresils/613/Cryptographic-Application/Screenshot (32).png"
