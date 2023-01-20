@@ -21,7 +21,8 @@
 1. start by navigating to the rsa folder.
 2. it is advisable to run the code in visual studio for the termcolor to work.(use commmand propmt if not available)
 3. run command - python main.py
-4. follow the instruction. 
+4. Start by generating the RSA key.(Save the private key in a secure path)
+5. follow the instruction to perform encryption and decryption.
 
 **Note**
 1. it is advicable to store the private key in a folder with each user name. e.g paul_public for public key and paul_private for private key. 
