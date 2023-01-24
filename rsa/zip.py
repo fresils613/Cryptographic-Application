@@ -1,7 +1,6 @@
 import zlib, sys
 from termcolor import cprint
 import os
-# just texting
 
 class Compress:
     def compress(self, filename):
@@ -14,20 +13,20 @@ class Compress:
 
             print('---------------------------+---------------------------------------------------')
             cprint(f"Original size: {sys.getsizeof(data)}", color='blue', attrs=['bold','blink']) # get the size of the original file 
-            # Original size: 1000033
+            # Original size
             cprint(f"Compressed size: {sys.getsizeof(compressed_data)}", color='blue', attrs=['bold','blink']) # Get the size of the compressed
-            # Compressed size: 1024
+            # Compressed size
             print('---------------------------+---------------------------------------------------')
             fout = open(os.path.join(self.filename_out), mode="wb")
-            fout.write(compressed_data)
+            fout.write(compressed_data) # Save the decompress data inside the file created.
     def decompress(self, file_compress):
         self.file_compress = file_compress 
         main = 'decompress_' + self.file_compress
         with open(self.file_compress, mode="rb") as fin, open(main, mode="wb") as fout:
-            data = fin.read()
-            decompressed_data = zlib.decompress(data)
+            data = fin.read() # Read the content of the file
+            decompressed_data = zlib.decompress(data) # Decompress the data in the file
             cprint(f"Compressed size: {sys.getsizeof(data)}", color='blue', attrs=['bold','blink'])
-            # Compressed size: 1024
+            # Compressed size
             cprint(f"Decompressed size: {sys.getsizeof(decompressed_data)}", color='blue', attrs=['bold','blink'])
             fout.write(decompressed_data)
-            # Decompressed size: 10000
+            # Decompressed size
