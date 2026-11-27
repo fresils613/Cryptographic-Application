@@ -1,37 +1,64 @@
-# Cryptographic-Application
+# Cryptographic Application
 
-**Requirement **
-1. visual studio code or comand prompt 
-2. python version 3
-3. pip 
-4. termcolor 
-5. cryptodome
+A Python-based file encryption and decryption project built around RSA key generation and file/folder workflows. This repository contains the original command-line version of the project.
 
+> **Project status:** Educational project. Review the implementation and test it in a safe environment before using it with important or sensitive files. Do not treat this version as a production-ready file-protection product.
 
+## Features documented in this version
 
-**INSTALLATION PROCESS**
-  
-  Run the following after downloading and decompressing the file.
-    
-    1. Pip install termcolor
-    
-    2. pip install pycryptodome 
+- Generate RSA public and private keys.
+- Encrypt and decrypt supported files.
+- Encrypt and decrypt folders containing supported files.
+- Organise key files separately for different users.
 
-**STEPS:**
-1. start by navigating to the rsa folder.
-2. it is advisable to run the code in visual studio for the termcolor to work.(use commmand propmt if not available)
-3. run command - python main.py
-4. Start by generating the RSA key.(Save the private key in a secure path)
-5. follow the instruction to perform encryption and decryption.
+## Requirements
 
-**Note**
-1. it is advicable to store the private key in a folder with each user name. e.g paul_public for public key and paul_private for private key. 
-2. for private key security. save the private key in a better location in your system with good access control.
-2. Create different folder for different user. 
-3. The application is restricted to txt, pdf, word files. 
-4. When performing folder encryption and deryption, make sure the folder contains file of suported format and it does not contain another folder. 
-5. Make sure the file being encrypted is not protected by password.
+- Python 3
+- `pycryptodome`
+- `termcolor`
 
-CODE PREVIEW
+## Installation
 
-![The main.py preview](https://github.com/fresils613/Cryptographic-Application/blob/main/Screenshot.png)
+Clone or download this repository, open a terminal in the project directory, and install the dependencies:
+
+```powershell
+python -m pip install pycryptodome termcolor
+```
+
+## Run the application
+
+The original command-line entry point is in the `rsa` directory:
+
+```powershell
+cd rsa
+python main.py
+```
+
+Follow the prompts to generate keys and perform encryption or decryption.
+
+## File and folder limitations
+
+The original README documents support for:
+
+- TXT files
+- PDF files
+- Word documents
+
+For folder operations, the folder must contain supported files only. Nested folders are not supported by the original implementation. Password-protected documents are also documented as unsupported.
+
+Check the code and test with copies of files before relying on these limitations or workflows.
+
+## Key handling
+
+- Keep private keys separate from public keys.
+- Restrict access to private-key files.
+- Keep secure backups of private keys.
+- Never commit private keys, passwords, or real sensitive data to this repository.
+
+## Security note
+
+This repository represents an earlier implementation of the project. Before using it to protect real data, independently review its key storage, encryption mode, authentication/integrity protection, error handling, and file-handling behaviour. A successful encryption operation alone does not establish that a cryptographic application is secure.
+
+## Development
+
+Contributions and technical feedback are welcome. Please include reproducible steps when reporting issues.
