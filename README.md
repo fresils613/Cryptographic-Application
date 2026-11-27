@@ -1,64 +1,62 @@
-# Cryptographic Application
+# Cryptographic Application 2.1
 
-A Python-based file encryption and decryption project built around RSA key generation and file/folder workflows. This repository contains the original command-line version of the project.
+A Windows-friendly desktop application for hybrid file encryption and safer RSA key management. The desktop interface uses a premium graphite theme with a compact navigation rail, focused workspace pages and clear key-management controls.
 
-> **Project status:** Educational project. Review the implementation and test it in a safe environment before using it with important or sensitive files. Do not treat this version as a production-ready file-protection product.
+## Features
 
-## Features documented in this version
-
-- Generate RSA public and private keys.
-- Encrypt and decrypt supported files.
-- Encrypt and decrypt folders containing supported files.
-- Organise key files separately for different users.
+- RSA-3072 key profiles (RSA-4096 is supported by the engine).
+- Passphrase-protected PKCS#8 private keys using scrypt and AES-128-CBC protection provided by PyCryptodome.
+- Public/private key separation and SHA-256 public-key fingerprints.
+- Import public keys and export public keys or passphrase-protected private-key backups.
+- Key profile view with key size, private-key availability and SHA-256 fingerprint.
+- Premium dark interface with overview, encryption, decryption and key-management pages.
+- Two-step confirmation before deleting a key profile, with an explicit private-key recovery warning.
+- Hybrid encryption: AES-256-GCM for file contents and RSA-OAEP with SHA-256 for the AES key.
+- Authenticated integrity verification; tampered or truncated files are rejected and partial plaintext is removed.
+- Existing output files are not overwritten.
+- Activity log records event types and outcomes only, not file paths, passphrases, keys or file contents.
 
 ## Requirements
 
-- Python 3
-- `pycryptodome`
-- `termcolor`
+- Windows 10/11
+- Python 3.10 or newer
 
-## Installation
+## Setup
 
-Clone or download this repository, open a terminal in the project directory, and install the dependencies:
-
-```powershell
-python -m pip install pycryptodome termcolor
-```
-
-## Run the application
-
-The original command-line entry point is in the `rsa` directory:
+Open PowerShell in this project folder and run:
 
 ```powershell
-cd rsa
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
 python main.py
 ```
 
-Follow the prompts to generate keys and perform encryption or decryption.
+If PowerShell blocks activation, run the app without activating the environment:
 
-## File and folder limitations
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv\Scripts\python.exe main.py
+```
 
-The original README documents support for:
+## Tests
 
-- TXT files
-- PDF files
-- Word documents
+```powershell
+python -m unittest discover -s tests -v
+```
 
-For folder operations, the folder must contain supported files only. Nested folders are not supported by the original implementation. Password-protected documents are also documented as unsupported.
+## Key storage
 
-Check the code and test with copies of files before relying on these limitations or workflows.
+Profiles are stored under `%APPDATA%\CryptographicApplication`. Private keys are encrypted with a passphrase. Export a protected private-key backup and store it separately. If a private key and its backup are lost, files encrypted to that key cannot be recovered.
 
-## Key handling
+## Encrypted file format
 
-- Keep private keys separate from public keys.
-- Restrict access to private-key files.
-- Keep secure backups of private keys.
-- Never commit private keys, passwords, or real sensitive data to this repository.
+Files use the `.cap` extension. The format includes a versioned header, wrapped AES key, AES-GCM ciphertext and authentication tag. The header and wrapped key are authenticated as associated data. AES-GCM authenticates the encrypted content before the decrypted file is moved into its final location.
 
-## Security note
+## Important security notes
 
-This repository represents an earlier implementation of the project. Before using it to protect real data, independently review its key storage, encryption mode, authentication/integrity protection, error handling, and file-handling behaviour. A successful encryption operation alone does not establish that a cryptographic application is secure.
-
-## Development
-
-Contributions and technical feedback are welcome. Please include reproducible steps when reporting issues.
+- This is a local file-encryption tool, not a replacement for a managed enterprise key-management system.
+- Protect your Windows account and device. The application does not currently integrate with TPM, Windows Hello, a hardware security module or cloud key vault.
+- The app currently encrypts individual files. Recursive folder encryption, drag-and-drop, cancellation and batch processing are not part of this release.
+- Keep private-key backups safe and never share them with recipients.
